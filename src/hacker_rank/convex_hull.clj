@@ -20,8 +20,6 @@
 (defn convex-hull [points]
   (loop [origin (min-coords points)
          res [origin]]
-    (println origin)
-    (println res)
     (let [new-origin (reduce (partial min-polar-angle origin) (remove #(= origin %) points))]
       (if (in? res new-origin)
         res
@@ -32,4 +30,4 @@
   (->> (points-from-stdin)
        convex-hull
        poly-perim
-       println))
+       println))n
